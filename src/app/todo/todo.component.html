@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <h1 class="page_title">ToutouList</h1>
+
+  <div class="form_container">
+
+    <input 
+    #newItem
+    placeholder="add an item"
+    (keyup.enter)="addItem(newItem.value); newItem.value = ''"
+    class="add_item_input"
+    id="addItemInput"
+    />
+    
+    <button class="add_button" (click)="addItem(newItem.value)">Add</button>
+  </div>
+
+
+
+
+  <div *ngFor="let item of items" [style.background-color]="i.checked ? '#039103':'' "  class="card">
+
+    
+      <input class="checkbox_status" #i type="checkbox" (change)="!i['checked']">
+
+
+    <span class="card_description">{{item.description}}</span>
+
+    <button class="edit_button" (click)="editTask(item)">Edit</button>
+
+    <button class="delete_button" (click)="removeItem(item)">Delete</button>
+  </div>
+
+
+
+
+
+
+</body>
+</html>
